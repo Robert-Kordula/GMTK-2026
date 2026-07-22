@@ -1,0 +1,201 @@
+{
+  "main": {
+    "id": "a40e68e8da50d20f",
+    "type": "split",
+    "children": [
+      {
+        "id": "c10b000c98fd46b4",
+        "type": "tabs",
+        "dimension": 57.105943152454785,
+        "children": [
+          {
+            "id": "5c71e1f56568140d",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Sean The Legally Distinct Hampshire Down.canvas",
+                "viewState": {
+                  "x": 325.5395204275442,
+                  "y": -103.63540919845275,
+                  "zoom": -1.239104927769979
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Sean The Legally Distinct Hampshire Down"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e4c8dbc614cece27",
+        "type": "tabs",
+        "dimension": 42.89405684754522,
+        "children": [
+          {
+            "id": "f5af66e3cc4b5062",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "eb48a40300b8c4d3",
+    "type": "split",
+    "children": [
+      {
+        "id": "b8e5cc88576c6830",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bb1d725596a532d7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "a81f8d0b7a117650",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d4ebeb492c6f2d8c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "fceae181f395c36f",
+    "type": "split",
+    "children": [
+      {
+        "id": "362141621e3b7317",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a3a676366fd32bbb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Welcome.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Welcome"
+            }
+          },
+          {
+            "id": "d3cd211ce13488e5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "6d7de126082fa2f8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d3764b96a253e345",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "5c71e1f56568140d",
+  "lastOpenFiles": [
+    "Untitled.base",
+    "Sean The Legally Distinct Hampshire Down.canvas",
+    "Definitions.canvas",
+    "Game Ideas.canvas",
+    "Welcome.md"
+  ]
+}
