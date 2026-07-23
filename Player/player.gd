@@ -12,6 +12,8 @@ func _physics_process(_delta):
 
 	handle_movement_keys()
 
+	handle_input_keys()
+
 	move_and_slide()
 
 # Get the input direction and handle the movement.
@@ -43,3 +45,7 @@ func handle_movement_keys():
 		bite_hitbox.look_at(direction + global_position)
 
 	velocity = direction * speed
+
+func handle_input_keys():
+	if Input.is_action_just_pressed('melee_attack'):
+		bite_hitbox.attack()
