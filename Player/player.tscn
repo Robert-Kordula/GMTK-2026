@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://pr64gkn6fsat"]
+
+[ext_resource type="Script" uid="uid://blx8siisnnnm2" path="res://Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://c0ackvekkcmnt" path="res://Player/Sean_sprite.png" id="1_l8h54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3gep"]
+size = Vector2(14.932604, 13)
+
+[node name="Player" type="CharacterBody2D" unique_id=1427230220]
+script = ExtResource("1_4ntmi")
+
+[node name="SeanSprite" type="Sprite2D" parent="." unique_id=364111944]
+texture = ExtResource("1_l8h54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1910439431]
+position = Vector2(-0.5388862, 0.5)
+scale = Vector2(1.0097215, 1)
+shape = SubResource("RectangleShape2D_p3gep")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=566679862]
+zoom = Vector2(2, 2)
