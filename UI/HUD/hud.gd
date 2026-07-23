@@ -6,28 +6,55 @@ extends CanvasLayer
 @onready var heart_template: TextureRect = $HeartsContainer/HeartTemplate
 @onready var empty_heart_template: TextureRect = $HeartsContainer/EmptyHeartTemplate
 
+@onready var armour_container:FlowContainer = $ArmourContainer
+
+@onready var armour_template: TextureRect = $ArmourContainer/ArmourTemplate
+@onready var empty_armour_template: TextureRect = $ArmourContainer/EmptyArmourTemplate
+
+# @onready var armour_container: FlowContainer = $
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	heart_template.hide()
 	empty_heart_template.hide()
+	armour_template.hide()
+	empty_armour_template.hide()
+
 
 func connect_player(player: Player):
 	player.change_to_health.connect(update_health)
 	update_health(player.health, player.max_health)
+	player.change_to_armour.connect(update_armour)
+	update_armour(player.armour, player.max_armour)
 
-func update_health(currentHealth: int, max_health: int):
-	# Reset $HeartsContainer before re-rendering hearts
-	for child in $HeartsContainer.get_children():
+func update_health(current_health: int, max_health: int):
+	# Reset heart_container before re-rendering hearts
+	for child in hearts_container.get_children():
 		if child != heart_template || child != empty_heart_template:
 			child.queue_free()
 	
 	for i in max_health:
-		if i < currentHealth:
+		if i < current_health:
 			var heart:= heart_template.duplicate()
 			heart.show()
-			$HeartsContainer.add_child(heart)
+			hearts_container.add_child(heart)
 		else:
 			var empty_heart:= empty_heart_template.duplicate()
 			empty_heart.show()
-			$HeartsContainer.add_child(empty_heart)
+			hearts_container.add_child(empty_heart)
+
+func update_armour(current_armour: int, max_armour: int):
+	# Reset armour_container before re-rendering armour
+	for child in armour_container.get_children():
+		if child != armour_template || child != empty_armour_template:
+			child.queue_free()
+	
+	for i in max_armour:
+		if i < current_armour:
+			var armour:= armour_template.duplicate()
+			armour.show()
+			armour_container.add_child(armour)
+		else:
+			var empty_armour:= empty_armour_template.duplicate()
+			empty_armour.show()
+			armour_container.add_child(empty_armour)
