@@ -77,7 +77,7 @@ scale = Vector2(1.0097215, 1)
 shape = SubResource("RectangleShape2D_p3gep")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=566679862]
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
 
 [node name="BiteHitbox" type="Area2D" parent="." unique_id=1168518458]
 script = ExtResource("3_btcbx")

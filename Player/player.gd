@@ -1,6 +1,11 @@
+class_name Player
 extends CharacterBody2D
 
+signal change_to_health(new_health: int, new_max_health: int)
+
 @export var speed:float = 300.0
+@export var health: int = 2
+@export var max_health: int = 10
 
 @onready var animated_sprite:AnimatedSprite2D = $SeanSprite
 @onready var bite_hitbox:Area2D = $BiteHitbox
@@ -49,3 +54,8 @@ func handle_movement_keys():
 func handle_input_keys():
 	if Input.is_action_just_pressed('melee_attack'):
 		bite_hitbox.attack()
+
+func health_change(amount: int, new_max_health: int):
+	max_health = new_max_health
+	health = clamp(health - amount, 0, max_health)
+	change_to_health.emit(health, new_max_health)
