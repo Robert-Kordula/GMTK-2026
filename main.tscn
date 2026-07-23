@@ -6,6 +6,7 @@
 [node name="Main" type="Node2D" unique_id=53911613]
 
 [node name="Player" parent="." unique_id=1427230220 instance=ExtResource("1_ig7tw")]
+z_index = 1000
 
 [node name="SheepFodder" parent="." unique_id=633695722 instance=ExtResource("2_0xm2m")]
 position = Vector2(60, 53)
