@@ -1,7 +1,23 @@
 [gd_scene format=3 uid="uid://cbxa7xalyal6o"]
 
 [ext_resource type="PackedScene" uid="uid://pr64gkn6fsat" path="res://Player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b5ti53mxd1w51" path="res://NPCs/Fodder/sheep_fodder.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D" unique_id=53911613]
 
 [node name="Player" parent="." unique_id=1427230220 instance=ExtResource("1_ig7tw")]
+
+[node name="SheepFodder" parent="." unique_id=633695722 instance=ExtResource("2_0xm2m")]
+position = Vector2(60, 53)
+
+[node name="SheepFodder2" parent="." unique_id=1246808110 instance=ExtResource("2_0xm2m")]
+position = Vector2(-25, 96)
+
+[node name="SheepFodder3" parent="." unique_id=1605424722 instance=ExtResource("2_0xm2m")]
+position = Vector2(-122, 53)
+
+[node name="SheepFodder4" parent="." unique_id=186436746 instance=ExtResource("2_0xm2m")]
+position = Vector2(114, -11)
+
+[node name="SheepFodder5" parent="." unique_id=1316270939 instance=ExtResource("2_0xm2m")]
+position = Vector2(-37, -48)

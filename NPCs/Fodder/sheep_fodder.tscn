@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b5ti53mxd1w51"]
+
+[ext_resource type="Texture2D" uid="uid://cacwgvqprqndk" path="res://NPCs/Fodder/fodder_sprite.png" id="1_c83c8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3gep"]
+size = Vector2(14.932604, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lythl"]
+size = Vector2(16, 14)
+
+[node name="SheepFodder" type="RigidBody2D" unique_id=633695722]
+gravity_scale = 0.0
+
+[node name="FodderSprite" type="Sprite2D" parent="." unique_id=364111944]
+texture = ExtResource("1_c83c8")
+
+[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=1910439431]
+visible = false
+position = Vector2(-0.5388862, 0.5)
+scale = Vector2(1.0097215, 1)
+shape = SubResource("RectangleShape2D_p3gep")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=745515424]
+visible = false
+scale = Vector2(1.0021092, 1.0052584)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1267651695]
+shape = SubResource("RectangleShape2D_lythl")
+debug_color = Color(0.79607844, 0.40392157, 0.3647059, 0.41960785)
