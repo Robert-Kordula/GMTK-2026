@@ -1,6 +1,6 @@
 Sean The Legally Distinct Hampshire Down
 
-Review the [Game Design Document here](https://docs.google.com/document/d/1B2fjzUPE-2P-jwcy97_GufrJLtkGsLCRIl4OoTje620/edit?usp=sharing)
+Comment and review the [Game Design Document found in the repo here](https://docs.google.com/document/d/1B2fjzUPE-2P-jwcy97_GufrJLtkGsLCRIl4OoTje620/edit?usp=sharing)
 
 Ensure all assets acquired are referenced here in this document
 
