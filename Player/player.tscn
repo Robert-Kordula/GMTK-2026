@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://pr64gkn6fsat"]
+
+[ext_resource type="Script" uid="uid://blx8siisnnnm2" path="res://Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://cg41n1dlsog05" path="res://Player/Sean_sprite-Sheet.png" id="2_4ntmi"]
+[ext_resource type="Script" uid="uid://0y24vojyw0f4" path="res://Player/bite_hitbox.gd" id="3_btcbx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btcbx"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwnis"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k53q1"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhl08"]
+atlas = ExtResource("2_4ntmi")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p3gep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btcbx")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwnis")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k53q1")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhl08")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3gep"]
+size = Vector2(14.932604, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82cnq"]
+size = Vector2(7, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_82cnq"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1427230220]
+collision_layer = 2
+collision_mask = 11
+script = ExtResource("1_4ntmi")
+
+[node name="SeanSprite" type="AnimatedSprite2D" parent="." unique_id=1856872280]
+sprite_frames = SubResource("SpriteFrames_p3gep")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1910439431]
+visible = false
+position = Vector2(-0.5388862, 0.5)
+scale = Vector2(1.0097215, 1)
+shape = SubResource("RectangleShape2D_p3gep")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=566679862]
+zoom = Vector2(2.5, 2.5)
+
+[node name="BiteHitbox" type="Area2D" parent="." unique_id=1168518458]
+collision_layer = 4
+collision_mask = 64
+script = ExtResource("3_btcbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BiteHitbox" unique_id=323074983]
+position = Vector2(7.5, 0)
+shape = SubResource("RectangleShape2D_82cnq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BiteHitbox" unique_id=270013654]
+position = Vector2(11, 0)
+scale = Vector2(0.7653905, -0.69764817)
+shape = SubResource("CircleShape2D_82cnq")
+
+[connection signal="area_entered" from="BiteHitbox" to="." method="_on_bite_hitbox_area_entered"]

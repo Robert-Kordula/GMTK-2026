@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dstxm5vgd8nhb"]
+
+[ext_resource type="Script" uid="uid://c6osyeunrii10" path="res://UI/HUD/hud.gd" id="1_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://rx4pudn80oyb" path="res://UI/HUD/inventory-Sheet.png" id="2_640wx"]
+[ext_resource type="FontFile" uid="uid://n7iihkv877mr" path="res://Misc Resources/Kenney Future Narrow.ttf" id="3_a2258"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lythl"]
+atlas = ExtResource("2_640wx")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82cnq"]
+atlas = ExtResource("2_640wx")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nwaq"]
+atlas = ExtResource("2_640wx")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spxqp"]
+atlas = ExtResource("2_640wx")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3gep"]
+atlas = ExtResource("2_640wx")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("2_640wx")
+region = Rect2(0, 0, 48, 48)
+
+[node name="HUD" type="CanvasLayer" unique_id=825874442]
+visible = false
+script = ExtResource("1_8sq4i")
+
+[node name="HeartsContainer" type="HFlowContainer" parent="." unique_id=23144085]
+offset_right = 96.0
+offset_bottom = 16.0
+scale = Vector2(2, 2)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="HeartTemplate" type="TextureRect" parent="HeartsContainer" unique_id=197053163]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lythl")
+
+[node name="EmptyHeartTemplate" type="TextureRect" parent="HeartsContainer" unique_id=767745454]
+layout_mode = 2
+texture = SubResource("AtlasTexture_82cnq")
+
+[node name="ArmourContainer" type="HFlowContainer" parent="." unique_id=244361590]
+offset_top = 26.0
+offset_right = 96.0
+offset_bottom = 42.0
+scale = Vector2(2, 2)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="ArmourTemplate" type="TextureRect" parent="ArmourContainer" unique_id=508340354]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1nwaq")
+
+[node name="EmptyArmourTemplate" type="TextureRect" parent="ArmourContainer" unique_id=1257845067]
+layout_mode = 2
+texture = SubResource("AtlasTexture_spxqp")
+
+[node name="Score" type="Label" parent="." unique_id=1453963846]
+offset_left = 238.0
+offset_top = 10.0
+offset_right = 407.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("3_a2258")
+theme_override_font_sizes/font_size = 32
+text = "Score: "
+uppercase = true
+
+[node name="Inventory" type="HFlowContainer" parent="." unique_id=1286298396]
+offset_left = 952.0
+offset_right = 1052.0
+offset_bottom = 50.0
+scale = Vector2(1.5, 1.5)
+
+[node name="MeleeSlot" type="TextureRect" parent="Inventory" unique_id=334871263]
+layout_mode = 2
+texture = SubResource("AtlasTexture_p3gep")
+expand_mode = 2
+
+[node name="RangedSlot" type="TextureRect" parent="Inventory" unique_id=260885582]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7mycd")

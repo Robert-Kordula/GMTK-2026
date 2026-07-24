@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cbxa7xalyal6o"]
+
+[ext_resource type="PackedScene" uid="uid://pr64gkn6fsat" path="res://Player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cov30pnxt7272" path="res://main.gd" id="1_kek77"]
+[ext_resource type="PackedScene" uid="uid://dstxm5vgd8nhb" path="res://hud.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://ckr2jski7dlws" path="res://NPCs/Fodder/SheepFodder.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bre7h1x4lx4vd" path="res://Zones/Farm/farm_zone.tscn" id="7_5vw27"]
+
+[node name="Main" type="Node2D" unique_id=53911613]
+script = ExtResource("1_kek77")
+
+[node name="Player" parent="." unique_id=1427230220 instance=ExtResource("1_ig7tw")]
+z_index = 1000
+
+[node name="HUD" parent="." unique_id=825874442 instance=ExtResource("3_lquwl")]
+
+[node name="FarmZone" parent="." unique_id=1613022791 instance=ExtResource("7_5vw27")]
+
+[node name="BaseNPC" parent="." unique_id=633695722 instance=ExtResource("6_7mycd")]
+position = Vector2(-128, -160)
+
+[node name="BaseNPC2" parent="." unique_id=637727958 instance=ExtResource("6_7mycd")]
+position = Vector2(80, -120)
+
+[node name="BaseNPC3" parent="." unique_id=2013195408 instance=ExtResource("6_7mycd")]
+position = Vector2(288, -104)
+
+[node name="BaseNPC4" parent="." unique_id=715541852 instance=ExtResource("6_7mycd")]
+position = Vector2(-168, -72)
+
+[node name="BaseNPC5" parent="." unique_id=1645913374 instance=ExtResource("6_7mycd")]
+position = Vector2(-312, -88)
+
+[node name="BaseNPC6" parent="." unique_id=953621108 instance=ExtResource("6_7mycd")]
+position = Vector2(-272, 48)
+
+[node name="BaseNPC7" parent="." unique_id=879785147 instance=ExtResource("6_7mycd")]
+position = Vector2(-352, 160)
+
+[node name="BaseNPC8" parent="." unique_id=1720810457 instance=ExtResource("6_7mycd")]
+position = Vector2(192, 88)
+
+[node name="BaseNPC9" parent="." unique_id=1519098733 instance=ExtResource("6_7mycd")]
+position = Vector2(184, 8)
+
+[node name="BaseNPC10" parent="." unique_id=1075810652 instance=ExtResource("6_7mycd")]
+position = Vector2(280, -16)
+
+[node name="BaseNPC11" parent="." unique_id=826702053 instance=ExtResource("6_7mycd")]
+position = Vector2(160, -144)
+
+[node name="BaseNPC12" parent="." unique_id=2002130844 instance=ExtResource("6_7mycd")]
+position = Vector2(-40, -152)
+
+[node name="BaseNPC13" parent="." unique_id=212659056 instance=ExtResource("6_7mycd")]
+position = Vector2(-8, -184)
+
+[node name="BaseNPC14" parent="." unique_id=156881082 instance=ExtResource("6_7mycd")]
+position = Vector2(112, -200)
+
+[node name="BaseNPC15" parent="." unique_id=1098178715 instance=ExtResource("6_7mycd")]
+position = Vector2(-128, 0)
+
+[connection signal="kill_sheep" from="Player" to="." method="_on_player_kill_sheep"]

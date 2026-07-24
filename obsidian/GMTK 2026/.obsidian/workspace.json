@@ -6,7 +6,6 @@
       {
         "id": "c10b000c98fd46b4",
         "type": "tabs",
-        "dimension": 57.105943152454785,
         "children": [
           {
             "id": "5c71e1f56568140d",
@@ -16,30 +15,13 @@
               "state": {
                 "file": "Sean The Legally Distinct Hampshire Down.canvas",
                 "viewState": {
-                  "x": 325.5395204275442,
-                  "y": -103.63540919845275,
-                  "zoom": -1.239104927769979
+                  "x": 794.1489065768095,
+                  "y": -615.8718553923381,
+                  "zoom": -0.9057715944366458
                 }
               },
               "icon": "lucide-layout-dashboard",
               "title": "Sean The Legally Distinct Hampshire Down"
-            }
-          }
-        ]
-      },
-      {
-        "id": "e4c8dbc614cece27",
-        "type": "tabs",
-        "dimension": 42.89405684754522,
-        "children": [
-          {
-            "id": "f5af66e3cc4b5062",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
             }
           }
         ]
