@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal change_to_health(new_health: int, new_max_health: int)
 signal change_to_armour(new_armour: int, new_max_armour: int)
+signal kill_sheep(points: int)
 
 @export var speed:float = 300.0
 
@@ -11,6 +12,8 @@ signal change_to_armour(new_armour: int, new_max_armour: int)
 
 @export var armour: int = 1
 @export var max_armour: int = 3
+
+var score: int = 0
 
 @onready var animated_sprite:AnimatedSprite2D = $SeanSprite
 @onready var bite_hitbox:Area2D = $BiteHitbox
@@ -69,3 +72,10 @@ func amour_change(armourChange: int, new_max_armour:= max_armour):
 	max_armour = new_max_armour
 	armour = clamp(armour - armourChange, 0, max_armour)
 	change_to_armour.emit(armour, new_max_armour)
+
+func _on_bite_hitbox_area_entered(area: Area2D):
+	var parent = area.get_parent()
+	if parent is SheepFodder:
+		score += parent.points_for_killing
+		kill_sheep.emit(score)
+		parent.kill_npc()
