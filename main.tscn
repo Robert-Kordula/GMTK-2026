@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://pr64gkn6fsat" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cov30pnxt7272" path="res://main.gd" id="1_kek77"]
-[ext_resource type="PackedScene" uid="uid://b5ti53mxd1w51" path="res://NPCs/Fodder/sheep_fodder.tscn" id="2_0xm2m"]
 [ext_resource type="FontFile" uid="uid://n7iihkv877mr" path="res://Misc Resources/Kenney Future Narrow.ttf" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c6osyeunrii10" path="res://UI/HUD/hud.gd" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://ckr2jski7dlws" path="res://NPCs/Fodder/SheepFodder.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://rx4pudn80oyb" path="res://UI/HUD/inventory-Sheet.png" id="7_272bh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lythl"]
@@ -36,21 +36,6 @@ script = ExtResource("1_kek77")
 
 [node name="Player" parent="." unique_id=1427230220 instance=ExtResource("1_ig7tw")]
 z_index = 1000
-
-[node name="SheepFodder" parent="." unique_id=633695722 instance=ExtResource("2_0xm2m")]
-position = Vector2(60, 53)
-
-[node name="SheepFodder2" parent="." unique_id=1246808110 instance=ExtResource("2_0xm2m")]
-position = Vector2(-25, 96)
-
-[node name="SheepFodder3" parent="." unique_id=1605424722 instance=ExtResource("2_0xm2m")]
-position = Vector2(-122, 53)
-
-[node name="SheepFodder4" parent="." unique_id=186436746 instance=ExtResource("2_0xm2m")]
-position = Vector2(114, -11)
-
-[node name="SheepFodder5" parent="." unique_id=1316270939 instance=ExtResource("2_0xm2m")]
-position = Vector2(-37, -48)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1368537349]
 script = ExtResource("3_lquwl")
@@ -110,3 +95,9 @@ expand_mode = 2
 [node name="RangedSlot" type="TextureRect" parent="HUD/Inventory" unique_id=1688899304]
 layout_mode = 2
 texture = SubResource("AtlasTexture_7mycd")
+
+[node name="BaseNPC" parent="." unique_id=633695722 instance=ExtResource("6_7mycd")]
+position = Vector2(104, 47)
+scale = Vector2(0.99880964, 1)
+
+[connection signal="kill_sheep" from="Player" to="." method="_on_player_kill_sheep"]

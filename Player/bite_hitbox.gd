@@ -1,12 +1,13 @@
 extends Area2D
 
-@export var total_attack_time:float = 0.5
+@export var total_attack_time:float = 0.2
 
 var is_attacking : bool = false;
 var attack_time: float = 0
 
 func _ready():
 	visible = false
+	monitoring = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -14,7 +15,6 @@ func _process(delta):
 		attack_time += delta
 		if attack_time >= total_attack_time:
 			attack_trigger(false)
-			
 
 func _draw():
 	draw_arc(
@@ -28,10 +28,10 @@ func _draw():
 
 func attack():
 	if !is_attacking:
-		print('setting to true')
 		attack_trigger(true)
 
 func attack_trigger(state: bool):
+	set_deferred("monitoring", state)
 	is_attacking = state
 	visible = state
 	if !state:

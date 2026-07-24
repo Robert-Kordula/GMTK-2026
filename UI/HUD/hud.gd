@@ -1,15 +1,17 @@
 class_name Hud 
 extends CanvasLayer
 
-@onready var hearts_container:FlowContainer = $HeartsContainer
+var label_text = "SCORE: %s"
 
+@onready var hearts_container:FlowContainer = $HeartsContainer
 @onready var heart_template: TextureRect = $HeartsContainer/HeartTemplate
 @onready var empty_heart_template: TextureRect = $HeartsContainer/EmptyHeartTemplate
 
 @onready var armour_container:FlowContainer = $ArmourContainer
-
 @onready var armour_template: TextureRect = $ArmourContainer/ArmourTemplate
 @onready var empty_armour_template: TextureRect = $ArmourContainer/EmptyArmourTemplate
+
+@onready var score_label: Label = $Score
 
 # @onready var armour_container: FlowContainer = $
 
@@ -26,6 +28,9 @@ func connect_player(player: Player):
 	update_health(player.health, player.max_health)
 	player.change_to_armour.connect(update_armour)
 	update_armour(player.armour, player.max_armour)
+	player.kill_sheep.connect(update_score)
+	update_score(0)
+
 
 func update_health(current_health: int, max_health: int):
 	# Reset heart_container before re-rendering hearts
@@ -58,3 +63,6 @@ func update_armour(current_armour: int, max_armour: int):
 			var empty_armour:= empty_armour_template.duplicate()
 			empty_armour.show()
 			armour_container.add_child(empty_armour)
+
+func update_score(new_score: int):
+	score_label.text = label_text % new_score
