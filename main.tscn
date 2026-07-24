@@ -13,6 +13,7 @@ script = ExtResource("1_kek77")
 z_index = 1000
 
 [node name="HUD" parent="." unique_id=825874442 instance=ExtResource("3_lquwl")]
+visible = true
 
 [node name="FarmZone" parent="." unique_id=1613022791 instance=ExtResource("7_5vw27")]
 
