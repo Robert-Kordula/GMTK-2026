@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://pr64gkn6fsat" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cov30pnxt7272" path="res://main.gd" id="1_kek77"]
+[ext_resource type="PackedScene" uid="uid://okougvrrhrqn" path="res://NPCs/Enemies/BaseEnemy.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dstxm5vgd8nhb" path="res://UI/HUD/hud.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ckr2jski7dlws" path="res://NPCs/Fodder/SheepFodder.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bre7h1x4lx4vd" path="res://Zones/Farm/farm_zone.tscn" id="7_5vw27"]
@@ -13,11 +14,11 @@ script = ExtResource("1_kek77")
 z_index = 1000
 
 [node name="HUD" parent="." unique_id=825874442 instance=ExtResource("3_lquwl")]
-visible = true
+visible = false
 
 [node name="FarmZone" parent="." unique_id=1613022791 instance=ExtResource("7_5vw27")]
 
-[node name="BaseNPC" parent="." unique_id=633695722 instance=ExtResource("6_7mycd")]
+[node name="BaseNPC" parent="." unique_id=1041592219 instance=ExtResource("6_7mycd")]
 position = Vector2(-128, -160)
 
 [node name="BaseNPC2" parent="." unique_id=637727958 instance=ExtResource("6_7mycd")]
@@ -61,5 +62,8 @@ position = Vector2(112, -200)
 
 [node name="BaseNPC15" parent="." unique_id=1098178715 instance=ExtResource("6_7mycd")]
 position = Vector2(-128, 0)
+
+[node name="BaseEnemy" parent="." unique_id=633695722 instance=ExtResource("2_7mycd")]
+position = Vector2(-80, -136)
 
 [connection signal="kill_sheep" from="Player" to="." method="_on_player_kill_sheep"]

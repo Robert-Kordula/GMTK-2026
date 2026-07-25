@@ -17,6 +17,7 @@ var label_text = "SCORE: %s"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = true
 	heart_template.hide()
 	empty_heart_template.hide()
 	armour_template.hide()
@@ -35,7 +36,7 @@ func connect_player(player: Player):
 func update_health(current_health: int, max_health: int):
 	# Reset heart_container before re-rendering hearts
 	for child in hearts_container.get_children():
-		if child != heart_template || child != empty_heart_template:
+		if child != heart_template && child != empty_heart_template:
 			child.queue_free()
 	
 	for i in max_health:
