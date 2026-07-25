@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dpjmbrjaxs3xm"]
+
+[ext_resource type="Script" uid="uid://7iv5uluvy2s3" path="res://NPCs/base_spawner.gd" id="1_ivsgg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3gep"]
+
+[node name="BaseSpawner" type="Area2D" unique_id=1566870969]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_ivsgg")
+
+[node name="SpawnRange" type="CollisionShape2D" parent="." unique_id=520577447]
+shape = SubResource("CircleShape2D_p3gep")
