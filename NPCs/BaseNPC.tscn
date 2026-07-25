@@ -26,13 +26,15 @@ shape = SubResource("RectangleShape2D_p3gep")
 [node name="HurtBox" type="Area2D" parent="." unique_id=745515424]
 visible = false
 scale = Vector2(1.0021092, 1.0052584)
-collision_layer = 0
+collision_layer = 16
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1267651695]
 shape = SubResource("RectangleShape2D_lythl")
 debug_color = Color(0.79607844, 0.40392157, 0.3647059, 0.41960785)
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1727999274]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=2112060141]
 shape = SubResource("RectangleShape2D_lythl")
