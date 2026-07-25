@@ -65,5 +65,7 @@ position = Vector2(-128, 0)
 
 [node name="BaseEnemy" parent="." unique_id=633695722 instance=ExtResource("2_7mycd")]
 position = Vector2(-80, -136)
+collision_layer = 1
+collision_mask = 1
 
 [connection signal="kill_sheep" from="Player" to="." method="_on_player_kill_sheep"]

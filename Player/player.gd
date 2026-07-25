@@ -5,7 +5,7 @@ signal change_to_health(new_health: int, new_max_health: int)
 signal change_to_armour(new_armour: int, new_max_armour: int)
 signal kill_sheep(points: int)
 
-@export var speed:float = 300.0
+@export var speed:float = 150.0
 
 @export var health: int = 3
 @export var max_health: int = 3
@@ -13,8 +13,8 @@ signal kill_sheep(points: int)
 @export var armour: int = 1
 @export var max_armour: int = 3
 
-@export var damage_velocity := 8.0
-@export var max_invulnerability_time := 0.3
+@export var damage_velocity: float = 200.0
+@export var max_invulnerability_time: float = 0.3
 
 var score: int = 0
 
@@ -103,7 +103,7 @@ func process_damage_knockback(delta: float):
 		velocity = Vector2(0,0)
 
 func game_over():
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://main.tscn")
 
 func _on_bite_hitbox_area_entered(area: Area2D):
 	var parent = area.get_parent()
