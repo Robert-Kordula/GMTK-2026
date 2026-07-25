@@ -21,7 +21,7 @@ radius = 30.016663
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kmfu"]
 radius = 237.99367
 
-[node name="BaseNPC2" unique_id=633695722 instance=ExtResource("1_61kt4")]
+[node name="BaseEnemy" unique_id=633695722 instance=ExtResource("1_61kt4")]
 collision_layer = 9
 script = ExtResource("2_xru6b")
 move_speed = 100
