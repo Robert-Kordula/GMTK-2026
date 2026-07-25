@@ -73,6 +73,7 @@ text = "Score: "
 uppercase = true
 
 [node name="Inventory" type="HFlowContainer" parent="." unique_id=1286298396]
+visible = false
 offset_left = 952.0
 offset_right = 1052.0
 offset_bottom = 50.0
