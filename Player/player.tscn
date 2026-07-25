@@ -65,16 +65,16 @@ size = Vector2(7, 14)
 [sub_resource type="CircleShape2D" id="CircleShape2D_82cnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
-size = Vector2(472.5, 20)
+size = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k53q1"]
-size = Vector2(472.5, 20)
+size = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fhl08"]
-size = Vector2(472.5, 20)
+size = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lythl"]
-size = Vector2(472.5, 20)
+size = Vector2(0, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=1427230220]
 collision_layer = 2
@@ -94,7 +94,6 @@ shape = SubResource("RectangleShape2D_p3gep")
 zoom = Vector2(2.5, 2.5)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1481832147]
-visible = false
 collision_layer = 32
 collision_mask = 16
 
@@ -119,6 +118,7 @@ scale = Vector2(0.7653905, -0.69764817)
 shape = SubResource("CircleShape2D_82cnq")
 
 [node name="SpawnZone" type="Area2D" parent="." unique_id=779948993]
+visible = false
 script = ExtResource("4_gwnis")
 
 [node name="Top" type="CollisionShape2D" parent="SpawnZone" unique_id=1880731225]
