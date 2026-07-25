@@ -1,5 +1,5 @@
 class_name BaseNPC
-extends RigidBody2D
+extends CharacterBody2D
 
 @export var points_for_killing: int = 0
 
