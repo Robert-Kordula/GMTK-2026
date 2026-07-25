@@ -82,6 +82,7 @@ shape = SubResource("RectangleShape2D_p3gep")
 zoom = Vector2(2.5, 2.5)
 
 [node name="BiteHitbox" type="Area2D" parent="." unique_id=1168518458]
+visible = false
 collision_layer = 4
 collision_mask = 64
 script = ExtResource("3_btcbx")
