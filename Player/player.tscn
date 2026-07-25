@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://blx8siisnnnm2" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://cg41n1dlsog05" path="res://Player/Sean_sprite-Sheet.png" id="2_4ntmi"]
 [ext_resource type="Script" uid="uid://0y24vojyw0f4" path="res://Player/bite_hitbox.gd" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://batj6j6qrqsml" path="res://Player/spawn_zone.gd" id="4_gwnis"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_btcbx"]
 atlas = ExtResource("2_4ntmi")
@@ -63,6 +64,18 @@ size = Vector2(7, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_82cnq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
+size = Vector2(472.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k53q1"]
+size = Vector2(472.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhl08"]
+size = Vector2(472.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lythl"]
+size = Vector2(472.5, 20)
+
 [node name="Player" type="CharacterBody2D" unique_id=1427230220]
 collision_layer = 2
 collision_mask = 11
@@ -77,7 +90,7 @@ position = Vector2(-0.5388862, 0.5)
 scale = Vector2(1.0097215, 1)
 shape = SubResource("RectangleShape2D_p3gep")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=566679862]
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=566679862]
 zoom = Vector2(2.5, 2.5)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1481832147]
@@ -104,5 +117,20 @@ shape = SubResource("RectangleShape2D_82cnq")
 position = Vector2(11, 0)
 scale = Vector2(0.7653905, -0.69764817)
 shape = SubResource("CircleShape2D_82cnq")
+
+[node name="SpawnZone" type="Area2D" parent="." unique_id=779948993]
+script = ExtResource("4_gwnis")
+
+[node name="Top" type="CollisionShape2D" parent="SpawnZone" unique_id=1880731225]
+shape = SubResource("RectangleShape2D_gwnis")
+
+[node name="Bottom" type="CollisionShape2D" parent="SpawnZone" unique_id=453486759]
+shape = SubResource("RectangleShape2D_k53q1")
+
+[node name="Left" type="CollisionShape2D" parent="SpawnZone" unique_id=1971219072]
+shape = SubResource("RectangleShape2D_fhl08")
+
+[node name="Right" type="CollisionShape2D" parent="SpawnZone" unique_id=1225928837]
+shape = SubResource("RectangleShape2D_lythl")
 
 [connection signal="area_entered" from="BiteHitbox" to="." method="_on_bite_hitbox_area_entered"]
