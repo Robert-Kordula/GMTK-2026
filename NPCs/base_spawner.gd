@@ -1,22 +1,38 @@
 class_name BaseSpawner
 extends Area2D
 
+@export var respawn_delay_in_seconds: float = 300
 @export var max_entities: int = 100
 
 @onready var spawn_range: CollisionShape2D = $SpawnRange;
 
 var entities: Array[BaseNPC] = []
+var respawn_timer_in_seconds: float
+var is_in_spawn_zone: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	respawn_timer_in_seconds = respawn_delay_in_seconds
+	is_in_spawn_zone = false
 
 
-func try_spawn():
+func try_spawn(delta: float):
 	if entities.size() >= max_entities:
+		respawn_timer_in_seconds = 0.0
 		return
-	
-	var entity = create_entity()
+
+	respawn_timer_in_seconds += delta
+
+	if respawn_timer_in_seconds < respawn_delay_in_seconds:
+		return
+
+	var entity := create_entity()
+
+	if entity == null:
+		push_error("Spawner failed to create an entity")
+		respawn_timer_in_seconds = 0.0
+		return
+
 	register_entity(entity)
 
 
@@ -46,6 +62,11 @@ func get_random_position() -> Vector2:
 
 	return global_position + Vector2.from_angle(angle) * distance
 
+
+func set_is_in_spawn_zone(new_value: bool):
+	is_in_spawn_zone = new_value
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	try_spawn()
+	if is_in_spawn_zone:
+		try_spawn(delta)
