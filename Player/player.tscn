@@ -81,6 +81,15 @@ shape = SubResource("RectangleShape2D_p3gep")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=566679862]
 zoom = Vector2(2.5, 2.5)
 
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1481832147]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=728856214]
+position = Vector2(-0.5388862, 0.5)
+scale = Vector2(1.0097215, 1)
+shape = SubResource("RectangleShape2D_p3gep")
+
 [node name="BiteHitbox" type="Area2D" parent="." unique_id=1168518458]
 visible = false
 collision_layer = 4
