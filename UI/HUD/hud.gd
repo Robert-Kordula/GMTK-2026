@@ -1,4 +1,4 @@
-class_name Hud 
+class_name Hud
 extends CanvasLayer
 
 var label_text = "SCORE: %s"
@@ -38,7 +38,7 @@ func update_health(current_health: int, max_health: int):
 	for child in hearts_container.get_children():
 		if child != heart_template && child != empty_heart_template:
 			child.queue_free()
-	
+
 	for i in max_health:
 		if i < current_health:
 			var heart:= heart_template.duplicate()
@@ -54,7 +54,7 @@ func update_armour(current_armour: int, max_armour: int):
 	for child in armour_container.get_children():
 		if child != armour_template || child != empty_armour_template:
 			child.queue_free()
-	
+
 	for i in max_armour:
 		if i < current_armour:
 			var armour:= armour_template.duplicate()

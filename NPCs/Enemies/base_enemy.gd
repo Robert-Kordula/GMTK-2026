@@ -19,8 +19,17 @@ func _process(delta):
 	if player:
 		position = position.move_toward(player.position, move_speed * delta)
 
+# Temporary implementation intended to be overridden by clases inheriting this class
+func attack():
+	print('start attack')
 
 func _on_hit_box_area_entered(area: Area2D):
 	var parent = area.get_parent()
 	if parent == player:
 		player.take_damage(hitbox_damage, position - player.position)
+
+
+func _on_attack_range_area_entered(area: Area2D):
+	var parent = area.get_parent()
+	if parent == player:
+		attack()

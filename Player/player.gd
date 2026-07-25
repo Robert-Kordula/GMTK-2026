@@ -76,7 +76,6 @@ func handle_input_keys():
 func health_change(change_amount: int, new_max_health:= max_health):
 	max_health = new_max_health
 	health = clamp(health + change_amount, 0, max_health)
-	print(health - change_amount)
 	change_to_health.emit(health, new_max_health)
 
 func amour_change(armourChange: int, new_max_armour:= max_armour):
