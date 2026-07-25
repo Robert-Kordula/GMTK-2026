@@ -25,3 +25,13 @@ func _ready():
 	spawn_zone_left.position -= horizontal_adjustment
 	spawn_zone_right.shape.size = horizontal_box_size
 	spawn_zone_right.position += horizontal_adjustment
+
+
+func _on_area_entered(area: Area2D):
+	if area is BaseSpawner:
+		area.set_is_in_spawn_zone(true)
+
+
+func _on_area_exited(area: Area2D):
+	if area is BaseSpawner:
+		area.set_is_in_spawn_zone(false)
