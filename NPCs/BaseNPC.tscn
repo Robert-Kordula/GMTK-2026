@@ -10,15 +10,15 @@ size = Vector2(14.932604, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lythl"]
 size = Vector2(16, 14)
 
-[node name="BaseNPC" type="RigidBody2D" unique_id=633695722]
-gravity_scale = 0.0
+[node name="BaseNPC" type="CharacterBody2D" unique_id=1290949101]
+collision_layer = 8
+collision_mask = 11
 script = ExtResource("1_ikncf")
 
 [node name="NPCSprite" type="AnimatedSprite2D" parent="." unique_id=108169069]
 sprite_frames = SubResource("SpriteFrames_h8j34")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=1910439431]
-visible = false
 position = Vector2(-0.5388862, 0.5)
 scale = Vector2(1.0097215, 1)
 shape = SubResource("RectangleShape2D_p3gep")
@@ -26,13 +26,15 @@ shape = SubResource("RectangleShape2D_p3gep")
 [node name="HurtBox" type="Area2D" parent="." unique_id=745515424]
 visible = false
 scale = Vector2(1.0021092, 1.0052584)
-collision_layer = 0
+collision_layer = 16
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1267651695]
 shape = SubResource("RectangleShape2D_lythl")
 debug_color = Color(0.79607844, 0.40392157, 0.3647059, 0.41960785)
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1727999274]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=2112060141]
 shape = SubResource("RectangleShape2D_lythl")

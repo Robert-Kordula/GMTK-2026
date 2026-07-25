@@ -5,7 +5,7 @@ signal change_to_health(new_health: int, new_max_health: int)
 signal change_to_armour(new_armour: int, new_max_armour: int)
 signal kill_sheep(points: int)
 
-@export var speed:float = 300.0
+@export var speed:float = 150.0
 
 @export var health: int = 3
 @export var max_health: int = 3
@@ -13,7 +13,14 @@ signal kill_sheep(points: int)
 @export var armour: int = 1
 @export var max_armour: int = 3
 
+@export var damage_velocity: float = 200.0
+@export var max_invulnerability_time: float = 0.3
+
 var score: int = 0
+
+var has_player_taken_damage := false
+var invulnerability_time := 0.0
+var damage_direction := Vector2(0, 0)
 
 @onready var animated_sprite:AnimatedSprite2D = $SeanSprite
 @onready var bite_hitbox:Area2D = $BiteHitbox
@@ -21,11 +28,14 @@ var score: int = 0
 func _ready():
 	animated_sprite.play('right')
 
-func _physics_process(_delta):
+func _physics_process(delta):
 
-	handle_movement_keys()
+	if has_player_taken_damage:
+		process_damage_knockback(delta)
+	else:
+		handle_movement_keys()
 
-	handle_input_keys()
+		handle_input_keys()
 
 	move_and_slide()
 
@@ -63,15 +73,37 @@ func handle_input_keys():
 	if Input.is_action_just_pressed('melee_attack'):
 		bite_hitbox.attack()
 
-func health_change(healthChange: int, new_max_health:= max_health):
+func health_change(change_amount: int, new_max_health:= max_health):
 	max_health = new_max_health
-	health = clamp(health - healthChange, 0, max_health)
+	health = clamp(health + change_amount, 0, max_health)
 	change_to_health.emit(health, new_max_health)
 
 func amour_change(armourChange: int, new_max_armour:= max_armour):
 	max_armour = new_max_armour
 	armour = clamp(armour - armourChange, 0, max_armour)
 	change_to_armour.emit(armour, new_max_armour)
+
+func take_damage(damage: int, direction: Vector2):
+	health_change(-damage)
+	if health <= 0:
+		call_deferred("game_over")
+	else: 
+		damage_direction = direction
+		has_player_taken_damage = true
+
+func process_damage_knockback(delta: float):
+	velocity = -damage_direction * damage_velocity
+	
+	invulnerability_time += delta
+	
+	if invulnerability_time >= max_invulnerability_time:
+		animated_sprite.stop()
+		has_player_taken_damage = false
+		invulnerability_time = 0
+		velocity = Vector2(0,0)
+
+func game_over():
+	get_tree().change_scene_to_file("res://main.tscn")
 
 func _on_bite_hitbox_area_entered(area: Area2D):
 	var parent = area.get_parent()

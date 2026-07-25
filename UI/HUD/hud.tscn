@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dstxm5vgd8nhb"]
 
 [ext_resource type="Script" uid="uid://c6osyeunrii10" path="res://UI/HUD/hud.gd" id="1_8sq4i"]
-[ext_resource type="Texture2D" uid="uid://rx4pudn80oyb" path="res://UI/HUD/inventory-Sheet.png" id="2_640wx"]
+[ext_resource type="Texture2D" uid="uid://tyddeklr4vb6" path="res://UI/HUD/inventory-Sheet.png" id="2_640wx"]
 [ext_resource type="FontFile" uid="uid://n7iihkv877mr" path="res://Misc Resources/Kenney Future Narrow.ttf" id="3_a2258"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lythl"]
@@ -29,7 +29,6 @@ atlas = ExtResource("2_640wx")
 region = Rect2(0, 0, 48, 48)
 
 [node name="HUD" type="CanvasLayer" unique_id=825874442]
-visible = false
 script = ExtResource("1_8sq4i")
 
 [node name="HeartsContainer" type="HFlowContainer" parent="." unique_id=23144085]
@@ -74,6 +73,7 @@ text = "Score: "
 uppercase = true
 
 [node name="Inventory" type="HFlowContainer" parent="." unique_id=1286298396]
+visible = false
 offset_left = 952.0
 offset_right = 1052.0
 offset_bottom = 50.0
@@ -87,3 +87,5 @@ expand_mode = 2
 [node name="RangedSlot" type="TextureRect" parent="Inventory" unique_id=260885582]
 layout_mode = 2
 texture = SubResource("AtlasTexture_7mycd")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=896714259]
