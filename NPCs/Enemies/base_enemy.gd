@@ -1,7 +1,7 @@
 class_name BaseEnemy
 extends BaseNPC
 
-@export var move_speed: int = 50
+@export var move_speed: int = 100
 
 @export var hitbox_damage: int = 1
 @export var attack_speed: float = 2
