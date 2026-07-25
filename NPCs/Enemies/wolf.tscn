@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://cfsuch5s6nkr6"]
+[gd_scene format=3 uid="uid://bfj0xe8pmqsg7"]
 
 [ext_resource type="PackedScene" uid="uid://okougvrrhrqn" path="res://NPCs/Enemies/BaseEnemy.tscn" id="1_x8ol8"]
-[ext_resource type="Script" uid="uid://c83hfwq7hd2ry" path="res://NPCs/Enemies/wolf.gd" id="2_ggoh0"]
-[ext_resource type="Texture2D" uid="uid://b7llk64cb65x1" path="res://NPCs/Enemies/tile_0000.png" id="3_ipyo1"]
+[ext_resource type="Script" path="res://NPCs/Enemies/wolf.gd" id="2_ggoh0"]
+[ext_resource type="Texture2D" uid="uid://b7llk64cb65x1" path="res://NPCs/Enemies/wolf/tile_0000.png" id="3_ipyo1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fjf03"]
 animations = [{
@@ -20,10 +20,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggoh0"]
+size = Vector2(20, 23)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggoh0"]
 radius = 50.02
 
-[node name="BaseNPC2" unique_id=633695722 instance=ExtResource("1_x8ol8")]
+[node name="Wolf" unique_id=633695722 instance=ExtResource("1_x8ol8")]
 script = ExtResource("2_ggoh0")
 pounce_distance = 120.0
 warning_time = 0.4
@@ -33,8 +36,25 @@ recovery_time = 0.2
 [node name="NPCSprite" parent="." index="0" unique_id=108169069]
 sprite_frames = SubResource("SpriteFrames_fjf03")
 
-[node name="CollisionShape2D" parent="AttackRange" parent_id_path=PackedInt32Array(79246605) index="0" unique_id=132471590]
+[node name="BodyCollision" parent="." index="1" unique_id=1910439431]
+position = Vector2(-4.7683716e-07, 0.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ggoh0")
+
+[node name="HurtBox" parent="." index="2" unique_id=745515424]
+visible = false
+
+[node name="HitBox" parent="." index="3" unique_id=1727999274]
+visible = false
+
+[node name="AttackRange" parent="." index="4" unique_id=79246605]
+visible = false
+
+[node name="CollisionShape2D" parent="AttackRange" index="0" unique_id=132471590]
 shape = SubResource("CircleShape2D_ggoh0")
 
-[node name="CollisionShape2D" parent="FollowRange" parent_id_path=PackedInt32Array(2110883168) index="0" unique_id=1282979682]
+[node name="FollowRange" parent="." index="5" unique_id=2110883168]
+visible = false
+
+[node name="CollisionShape2D" parent="FollowRange" index="0" unique_id=1282979682]
 position = Vector2(0, 2)
