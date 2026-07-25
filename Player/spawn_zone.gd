@@ -25,4 +25,3 @@ func _ready():
 	spawn_zone_left.position -= horizontal_adjustment
 	spawn_zone_right.shape.size = horizontal_box_size
 	spawn_zone_right.position += horizontal_adjustment
-
