@@ -36,7 +36,7 @@ func connect_player(player: Player):
 func update_health(current_health: int, max_health: int):
 	# Reset heart_container before re-rendering hearts
 	for child in hearts_container.get_children():
-		if child != heart_template && child != empty_heart_template:
+		if child != heart_template and child != empty_heart_template:
 			child.queue_free()
 
 	for i in max_health:
@@ -49,10 +49,11 @@ func update_health(current_health: int, max_health: int):
 			empty_heart.show()
 			hearts_container.add_child(empty_heart)
 
+
 func update_armour(current_armour: int, max_armour: int):
 	# Reset armour_container before re-rendering armour
 	for child in armour_container.get_children():
-		if child != armour_template || child != empty_armour_template:
+		if child != armour_template and child != empty_armour_template:
 			child.queue_free()
 
 	for i in max_armour:
@@ -64,6 +65,7 @@ func update_armour(current_armour: int, max_armour: int):
 			var empty_armour:= empty_armour_template.duplicate()
 			empty_armour.show()
 			armour_container.add_child(empty_armour)
+
 
 func update_score(new_score: int):
 	score_label.text = label_text % new_score
