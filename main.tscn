@@ -210,6 +210,6 @@ position = Vector2(-952, 1064)
 position = Vector2(-944, 400)
 
 [node name="Farmer" parent="." unique_id=633695722 instance=ExtResource("8_5vw27")]
-position = Vector2(8, -280)
+position = Vector2(9, -281)
 
 [connection signal="game_ended" from="Player" to="GameOver" method="_on_player_game_ended"]
