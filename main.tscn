@@ -9,17 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://biqvw7lk27453" path="res://NPCs/Fodder/SheepSpawner.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dfaqrc461xt6g" path="res://NPCs/Enemies/Farmer/FarmerSpawner.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://2hr56thej4q5" path="res://NPCs/Enemies/Farmer/Farmer.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://m3q4ulqb4ix5" path="res://Items/Upgrades/invincibility.tscn" id="9_kek77"]
 
 [node name="Main" type="Node2D" unique_id=53911613]
 script = ExtResource("1_kek77")
+
+[node name="HUD" parent="." unique_id=825874442 instance=ExtResource("3_lquwl")]
+visible = false
 
 [node name="GameOver" parent="." unique_id=1956195717 instance=ExtResource("2_kek77")]
 
 [node name="Player" parent="." unique_id=1427230220 instance=ExtResource("1_ig7tw")]
 z_index = 1000
-
-[node name="HUD" parent="." unique_id=825874442 instance=ExtResource("3_lquwl")]
-visible = false
 
 [node name="FarmZone" parent="." unique_id=1613022791 instance=ExtResource("7_5vw27")]
 position = Vector2(0, -1)
@@ -131,7 +132,7 @@ position = Vector2(464, -264)
 position = Vector2(-312, -376)
 
 [node name="FarmerSpawner3" parent="." unique_id=1111700290 instance=ExtResource("7_kek77")]
-position = Vector2(-648, 128)
+position = Vector2(-688, 56)
 
 [node name="FarmerSpawner4" parent="." unique_id=324004945 instance=ExtResource("7_kek77")]
 position = Vector2(368, 496)
@@ -144,5 +145,40 @@ position = Vector2(80, -696)
 
 [node name="Farmer" parent="." unique_id=633695722 instance=ExtResource("8_5vw27")]
 position = Vector2(0, -288)
+collision_layer = 9
+platform_floor_layers = 4294967295
+
+[node name="Invincibility" parent="." unique_id=830627371 instance=ExtResource("9_kek77")]
+position = Vector2(-96, -224)
+
+[node name="Invincibility2" parent="." unique_id=1511906139 instance=ExtResource("9_kek77")]
+position = Vector2(440, -264)
+
+[node name="Invincibility3" parent="." unique_id=2091238252 instance=ExtResource("9_kek77")]
+position = Vector2(-560, 320)
+
+[node name="Invincibility4" parent="." unique_id=901125855 instance=ExtResource("9_kek77")]
+position = Vector2(-48, 848)
+
+[node name="Invincibility5" parent="." unique_id=42280398 instance=ExtResource("9_kek77")]
+position = Vector2(944, 808)
+
+[node name="Invincibility6" parent="." unique_id=453779263 instance=ExtResource("9_kek77")]
+position = Vector2(-616, 1136)
+
+[node name="Invincibility7" parent="." unique_id=198889352 instance=ExtResource("9_kek77")]
+position = Vector2(-928, -208)
+
+[node name="Invincibility8" parent="." unique_id=1733258617 instance=ExtResource("9_kek77")]
+position = Vector2(-840, -784)
+
+[node name="Invincibility9" parent="." unique_id=1345741284 instance=ExtResource("9_kek77")]
+position = Vector2(-136, -1176)
+
+[node name="Invincibility10" parent="." unique_id=324974527 instance=ExtResource("9_kek77")]
+position = Vector2(696, -1160)
+
+[node name="Invincibility11" parent="." unique_id=574457006 instance=ExtResource("9_kek77")]
+position = Vector2(1032, -640)
 
 [connection signal="game_ended" from="Player" to="GameOver" method="_on_player_game_ended"]

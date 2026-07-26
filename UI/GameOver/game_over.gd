@@ -4,6 +4,7 @@ var score_label_message = "Final score: %s"
 
 @onready var sheep_counter_label: Label = $Control/SheepCounter;
 @onready var score_label: Label = $Control/Score;
+@onready var restart_button: Button = $Control/Button
 
 @onready var root_control: Control = $Control
 
@@ -19,4 +20,5 @@ func _on_player_game_ended(sheep_killed: int, final_score: int) -> void:
 
 
 func _on_button_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://main.tscn")

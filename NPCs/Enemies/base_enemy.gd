@@ -19,9 +19,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if player_target:
-		global_position = global_position.move_toward(player_target.global_position, move_speed * delta)
+		var direction := global_position.direction_to(
+			player_target.global_position
+		)
 
-		process_attack(delta)
+		velocity = direction * move_speed
+
+	else:
+		velocity = Vector2.ZERO
+
+	move_and_slide()
+	process_attack(delta)
 
 func process_attack(delta: float):
 	if can_attack_player:

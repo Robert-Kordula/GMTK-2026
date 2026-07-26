@@ -397,7 +397,8 @@ texture = ExtResource("1_vp4x6")
 13:10/0 = 0
 
 [resource]
-physics_layer_0/collision_layer = 10
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 11
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Dirt in grass"
 terrain_set_0/terrain_0/color = Color(0.50575846, 0.23721823, 0.66395676, 1)

@@ -107,7 +107,13 @@ func armour_change(change_amount: int, new_max_armour:= max_armour) -> int:
 
 
 func take_damage(damage: int, direction: Vector2):
-	if triggering_game_over or invincibility_timer > 0:
+	if triggering_game_over:
+		return
+
+	if invincibility_timer > 0.0:
+		return
+
+	if has_player_taken_damage:
 		return
 
 	flash_damage()
@@ -151,6 +157,7 @@ func handle_power_up_effects(delta: float) -> void:
 
 
 func invincibility_pick_up(time_to_apply: float) -> void:
+	print("Applying invincibility: ", time_to_apply)
 	invincibility_timer = time_to_apply
 	rainbow_flash()
 
