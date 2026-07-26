@@ -21,6 +21,7 @@ visible = false
 
 [node name="Player" parent="." unique_id=1427230220 instance=ExtResource("1_ig7tw")]
 z_index = 1000
+position = Vector2(0, 32)
 
 [node name="FarmZone" parent="." unique_id=1613022791 instance=ExtResource("7_5vw27")]
 position = Vector2(0, -1)
