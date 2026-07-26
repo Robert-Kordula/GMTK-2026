@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://ca2xc3ulauwo0"]
+
+[ext_resource type="FontFile" uid="uid://n7iihkv877mr" path="res://Misc Resources/Kenney Future Narrow.ttf" id="1_t6uax"]
+
+[resource]
+default_font = ExtResource("1_t6uax")
+default_font_size = 32

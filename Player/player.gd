@@ -4,6 +4,7 @@ extends CharacterBody2D
 signal change_to_health(new_health: int, new_max_health: int)
 signal change_to_armour(new_armour: int, new_max_armour: int)
 signal killed_npc(points: int)
+signal game_ended(sheep_killed: int, final_score: int)
 
 @export var speed:float = 150.0
 
@@ -155,12 +156,11 @@ func invincibility_pick_up(time_to_apply: float) -> void:
 
 
 func game_over():
-	get_tree().change_scene_to_file("res://main.tscn")
+	game_ended.emit(sheep_killed, score)
 
 
 func _on_bite_hitbox_area_entered(area: Area2D):
 	var parent = area.get_parent()
-	print(parent)
 	if parent is BaseNPC:
 		score += parent.points_for_killing
 		killed_npc.emit(score)
