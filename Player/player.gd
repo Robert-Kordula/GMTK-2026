@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 signal change_to_health(new_health: int, new_max_health: int)
 signal change_to_armour(new_armour: int, new_max_armour: int)
-signal kill_sheep(points: int)
+signal killed_npc(points: int)
 
 @export var speed:float = 150.0
 
@@ -17,10 +17,13 @@ signal kill_sheep(points: int)
 @export var max_invulnerability_time: float = 0.3
 
 var score: int = 0
+var sheep_killed: int = 0
 
 var has_player_taken_damage := false
 var invulnerability_time := 0.0
 var damage_direction := Vector2(0, 0)
+
+var triggering_game_over: bool = false
 
 @onready var animated_sprite:AnimatedSprite2D = $SeanSprite
 @onready var bite_hitbox:Area2D = $BiteHitbox
@@ -84,8 +87,11 @@ func amour_change(armourChange: int, new_max_armour:= max_armour):
 	change_to_armour.emit(armour, new_max_armour)
 
 func take_damage(damage: int, direction: Vector2):
+	if triggering_game_over:
+		return
 	health_change(-damage)
 	if health <= 0:
+		triggering_game_over = true
 		call_deferred("game_over")
 	else:
 		damage_direction = direction
@@ -106,7 +112,12 @@ func game_over():
 
 func _on_bite_hitbox_area_entered(area: Area2D):
 	var parent = area.get_parent()
-	if parent is SheepFodder:
+	print(parent)
+	if parent is BaseNPC:
 		score += parent.points_for_killing
-		kill_sheep.emit(score)
+		killed_npc.emit(score)
+
+		if parent is SheepFodder:
+			sheep_killed += 1
+
 		parent.kill_npc()

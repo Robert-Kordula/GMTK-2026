@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://btwopkvvvy8jo" path="res://NPCs/Enemies/wolf/WolfSpawner.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bre7h1x4lx4vd" path="res://Zones/Farm/farm_zone.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://biqvw7lk27453" path="res://NPCs/Fodder/SheepSpawner.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dfaqrc461xt6g" path="res://NPCs/Enemies/Farmer/FarmerSpawner.tscn" id="7_kek77"]
+[ext_resource type="PackedScene" uid="uid://2hr56thej4q5" path="res://NPCs/Enemies/Farmer/Farmer.tscn" id="8_5vw27"]
 
 [node name="Main" type="Node2D" unique_id=53911613]
 script = ExtResource("1_kek77")
@@ -119,4 +121,23 @@ position = Vector2(1216, 32)
 [node name="WolfSpawner9" parent="." unique_id=997721635 instance=ExtResource("6_7mycd")]
 position = Vector2(-1208, 40)
 
-[connection signal="kill_sheep" from="Player" to="." method="_on_player_kill_sheep"]
+[node name="FarmerSpawner" parent="." unique_id=1767275914 instance=ExtResource("7_kek77")]
+position = Vector2(464, -264)
+
+[node name="FarmerSpawner2" parent="." unique_id=500663053 instance=ExtResource("7_kek77")]
+position = Vector2(-312, -376)
+
+[node name="FarmerSpawner3" parent="." unique_id=1111700290 instance=ExtResource("7_kek77")]
+position = Vector2(-648, 128)
+
+[node name="FarmerSpawner4" parent="." unique_id=324004945 instance=ExtResource("7_kek77")]
+position = Vector2(368, 496)
+
+[node name="FarmerSpawner5" parent="." unique_id=37319778 instance=ExtResource("7_kek77")]
+position = Vector2(776, 184)
+
+[node name="FarmerSpawner6" parent="." unique_id=1414328883 instance=ExtResource("7_kek77")]
+position = Vector2(80, -696)
+
+[node name="Farmer" parent="." unique_id=633695722 instance=ExtResource("8_5vw27")]
+position = Vector2(0, -288)

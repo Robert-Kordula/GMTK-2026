@@ -29,7 +29,7 @@ func connect_player(player: Player):
 	update_health(player.health, player.max_health)
 	player.change_to_armour.connect(update_armour)
 	update_armour(player.armour, player.max_armour)
-	player.kill_sheep.connect(update_score)
+	player.killed_npc.connect(update_score)
 	update_score(0)
 
 
