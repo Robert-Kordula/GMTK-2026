@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dfaqrc461xt6g" path="res://NPCs/Enemies/Farmer/FarmerSpawner.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://2hr56thej4q5" path="res://NPCs/Enemies/Farmer/Farmer.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://m3q4ulqb4ix5" path="res://Items/Upgrades/invincibility.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://bf6vdt4a3gw8u" path="res://Items/Upgrades/max_health.tscn" id="11_efxa6"]
 
 [node name="Main" type="Node2D" unique_id=53911613]
 script = ExtResource("1_kek77")
@@ -18,6 +19,7 @@ script = ExtResource("1_kek77")
 visible = false
 
 [node name="GameOver" parent="." unique_id=1956195717 instance=ExtResource("2_kek77")]
+visible = false
 
 [node name="Player" parent="." unique_id=1427230220 instance=ExtResource("1_ig7tw")]
 z_index = 1000
@@ -181,5 +183,35 @@ position = Vector2(696, -1160)
 
 [node name="Invincibility11" parent="." unique_id=574457006 instance=ExtResource("9_kek77")]
 position = Vector2(1032, -640)
+
+[node name="BasePowerUp" parent="." unique_id=114825278 instance=ExtResource("11_efxa6")]
+position = Vector2(424, 72)
+
+[node name="MaxHealth" parent="." unique_id=1074955673 instance=ExtResource("11_efxa6")]
+position = Vector2(-136, 408)
+
+[node name="MaxHealth2" parent="." unique_id=2056603577 instance=ExtResource("11_efxa6")]
+position = Vector2(-984, -392)
+
+[node name="MaxHealth3" parent="." unique_id=1274931867 instance=ExtResource("11_efxa6")]
+position = Vector2(-320, -736)
+
+[node name="MaxHealth4" parent="." unique_id=1223483723 instance=ExtResource("11_efxa6")]
+position = Vector2(712, -760)
+
+[node name="MaxHealth5" parent="." unique_id=188147671 instance=ExtResource("11_efxa6")]
+position = Vector2(864, -272)
+
+[node name="MaxHealth6" parent="." unique_id=1454964466 instance=ExtResource("11_efxa6")]
+position = Vector2(792, 632)
+
+[node name="MaxHealth7" parent="." unique_id=1067752691 instance=ExtResource("11_efxa6")]
+position = Vector2(512, 1008)
+
+[node name="MaxHealth8" parent="." unique_id=93198774 instance=ExtResource("11_efxa6")]
+position = Vector2(-952, 1064)
+
+[node name="MaxHealth9" parent="." unique_id=1344661242 instance=ExtResource("11_efxa6")]
+position = Vector2(-944, 400)
 
 [connection signal="game_ended" from="Player" to="GameOver" method="_on_player_game_ended"]

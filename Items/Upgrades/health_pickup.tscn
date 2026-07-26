@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://p4qmvgiaqbfa"]
+
+[ext_resource type="PackedScene" uid="uid://dvjvwusb4oyo" path="res://Items/PowerUps/base_power-up.tscn" id="1_3hwvp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hwvp"]
+radius = 7.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3hwvp"]
+load_path = "res://.godot/imported/pick-ups.png-4fcd3fcaf19195e0f28964fd9c2c7a29.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpmma"]
+atlas = SubResource("CompressedTexture2D_3hwvp")
+region = Rect2(16, 32, 16, 16)
+
+[node name="HealthPickup" unique_id=830627371 instance=ExtResource("1_3hwvp")]
+pickup_effect = 5
+effect_value = 1.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1149915139]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_3hwvp")
+
+[node name="PickupSprite" parent="." index="1" unique_id=446857974]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_mpmma")
