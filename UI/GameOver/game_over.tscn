@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dd20maymsdois"]
+
+[ext_resource type="Script" uid="uid://q50n43n65seu" path="res://UI/GameOver/game_over.gd" id="1_yxx3c"]
+[ext_resource type="Theme" uid="uid://ca2xc3ulauwo0" path="res://UI/game_theme.tres" id="2_8u835"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=1956195717]
+script = ExtResource("1_yxx3c")
+
+[node name="Control" type="Control" parent="." unique_id=1682934736]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8u835")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1767594031]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.42352942, 0.37254903, 1, 0.6901961)
+
+[node name="Label" type="Label" parent="Control" unique_id=1005134061]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 61.0
+offset_right = 1148.0
+offset_bottom = 133.0
+text = "You have been found guilty of"
+
+[node name="SheepCounter" type="Label" parent="Control" unique_id=588600720]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 136.0
+offset_right = 277.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 64
+text = "1000"
+
+[node name="Label3" type="Label" parent="Control" unique_id=15206695]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 80.0
+offset_right = 1004.0
+offset_bottom = 371.0
+theme_override_font_sizes/font_size = 150
+text = "COUNT"
+
+[node name="Label8" type="Label" parent="Control" unique_id=1333299050]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 137.0
+offset_right = 901.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 64
+text = "s"
+
+[node name="Label5" type="Label" parent="Control" unique_id=1806046624]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 226.0
+offset_right = 1242.0
+offset_bottom = 298.0
+text = "of Hampshire"
+
+[node name="Label6" type="Label" parent="Control" unique_id=1759127024]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 237.0
+offset_right = 792.0
+offset_bottom = 580.0
+theme_override_font_sizes/font_size = 150
+text = "DOWN"
+
+[node name="Label7" type="Label" parent="Control" unique_id=1381520062]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 390.0
+offset_right = 1242.0
+offset_bottom = 462.0
+text = "MURDER"
+
+[node name="Score" type="Label" parent="Control" unique_id=265514091]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 440.0
+offset_right = 718.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 80
+text = "FINAL SCORE:"
+
+[node name="Button" type="Button" parent="Control" unique_id=291813861]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 560.0
+offset_right = 693.0
+offset_bottom = 622.0
+theme_override_font_sizes/font_size = 47
+text = "RESTART"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

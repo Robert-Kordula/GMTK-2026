@@ -3,15 +3,15 @@ extends CanvasLayer
 
 var label_text = "SCORE: %s"
 
-@onready var hearts_container:FlowContainer = $HeartsContainer
-@onready var heart_template: TextureRect = $HeartsContainer/HeartTemplate
-@onready var empty_heart_template: TextureRect = $HeartsContainer/EmptyHeartTemplate
+@onready var hearts_container:FlowContainer = $Control/HeartsContainer
+@onready var heart_template: TextureRect = $Control/HeartsContainer/HeartTemplate
+@onready var empty_heart_template: TextureRect = $Control/HeartsContainer/EmptyHeartTemplate
 
-@onready var armour_container:FlowContainer = $ArmourContainer
-@onready var armour_template: TextureRect = $ArmourContainer/ArmourTemplate
-@onready var empty_armour_template: TextureRect = $ArmourContainer/EmptyArmourTemplate
+@onready var armour_container:FlowContainer = $Control/ArmourContainer
+@onready var armour_template: TextureRect = $Control/ArmourContainer/ArmourTemplate
+@onready var empty_armour_template: TextureRect = $Control/ArmourContainer/EmptyArmourTemplate
 
-@onready var score_label: Label = $Score
+@onready var score_label: Label = $Control/Score
 
 # @onready var armour_container: FlowContainer = $
 
