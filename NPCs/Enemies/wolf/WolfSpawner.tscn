@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://btwopkvvvy8jo"]
+
+[ext_resource type="PackedScene" uid="uid://dpjmbrjaxs3xm" path="res://NPCs/BaseSpawner.tscn" id="1_akfvk"]
+[ext_resource type="Script" uid="uid://b6uf6ugqcxfv2" path="res://NPCs/Enemies/wolf/wolf_spawner.gd" id="2_ntwe5"]
+
+[node name="WolfSpawner" unique_id=1566870969 instance=ExtResource("1_akfvk")]
+script = ExtResource("2_ntwe5")
+respawn_delay_in_seconds = 30.0
+max_entities = 3

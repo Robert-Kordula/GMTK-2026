@@ -1,11 +1,10 @@
 extends BaseSpawner
 
-const SHEEP_SCENE := preload("SheepFodder.tscn")
+const WOLF_SCENE := preload("wolf.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
 
-
 func create_entity() -> BaseNPC:
-	return SHEEP_SCENE.instantiate()
+	return WOLF_SCENE.instantiate()

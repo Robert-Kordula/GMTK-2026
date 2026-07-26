@@ -87,15 +87,14 @@ func take_damage(damage: int, direction: Vector2):
 	health_change(-damage)
 	if health <= 0:
 		call_deferred("game_over")
-	else: 
+	else:
 		damage_direction = direction
 		has_player_taken_damage = true
 
 func process_damage_knockback(delta: float):
 	velocity = -damage_direction * damage_velocity
-	
 	invulnerability_time += delta
-	
+
 	if invulnerability_time >= max_invulnerability_time:
 		animated_sprite.stop()
 		has_player_taken_damage = false

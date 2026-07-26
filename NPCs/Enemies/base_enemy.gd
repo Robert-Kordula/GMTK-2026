@@ -19,7 +19,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if player_target:
-		position = position.move_toward(player_target.position, move_speed * delta)
+		global_position = global_position.move_toward(player_target.global_position, move_speed * delta)
 
 		process_attack(delta)
 
@@ -52,7 +52,7 @@ func _on_attack_range_area_exited(area: Area2D):
 		can_attack_player = false
 
 
-func _on_follow_range_area_entered(area):
+func _on_follow_range_area_entered(area: Area2D):
 	var parent = area.get_parent()
 	if parent is Player:
 		player_target = parent
@@ -65,7 +65,7 @@ func _on_follow_range_area_exited(area):
 
 func get_attack_direction() -> Vector2:
 	if player_target.position.is_finite():
-		var direction = position - player_target.position
+		var direction = position - player_target.global_position
 
 		return direction.normalized()
 
