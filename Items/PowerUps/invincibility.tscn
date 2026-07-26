@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://m3q4ulqb4ix5"]
+
+[ext_resource type="PackedScene" uid="uid://dvjvwusb4oyo" path="res://Items/PowerUps/base_power-up.tscn" id="1_1vp7r"]
+[ext_resource type="Texture2D" uid="uid://dm7glqxfw8trl" path="res://Items/PowerUps/pick-ups.png" id="2_iqym8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efxa6"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
+atlas = ExtResource("2_iqym8")
+region = Rect2(0, 16, 16, 16)
+
+[node name="Invincibility" unique_id=830627371 instance=ExtResource("1_1vp7r")]
+effect_value = 5.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1149915139]
+shape = SubResource("CapsuleShape2D_efxa6")
+
+[node name="PickupSprite" parent="." index="1" unique_id=446857974]
+texture = SubResource("AtlasTexture_4c57u")

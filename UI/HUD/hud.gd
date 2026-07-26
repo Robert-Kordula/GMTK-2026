@@ -3,15 +3,15 @@ extends CanvasLayer
 
 var label_text = "SCORE: %s"
 
-@onready var hearts_container:FlowContainer = $HeartsContainer
-@onready var heart_template: TextureRect = $HeartsContainer/HeartTemplate
-@onready var empty_heart_template: TextureRect = $HeartsContainer/EmptyHeartTemplate
+@onready var hearts_container:FlowContainer = $Control/HeartsContainer
+@onready var heart_template: TextureRect = $Control/HeartsContainer/HeartTemplate
+@onready var empty_heart_template: TextureRect = $Control/HeartsContainer/EmptyHeartTemplate
 
-@onready var armour_container:FlowContainer = $ArmourContainer
-@onready var armour_template: TextureRect = $ArmourContainer/ArmourTemplate
-@onready var empty_armour_template: TextureRect = $ArmourContainer/EmptyArmourTemplate
+@onready var armour_container:FlowContainer = $Control/ArmourContainer
+@onready var armour_template: TextureRect = $Control/ArmourContainer/ArmourTemplate
+@onready var empty_armour_template: TextureRect = $Control/ArmourContainer/EmptyArmourTemplate
 
-@onready var score_label: Label = $Score
+@onready var score_label: Label = $Control/Score
 
 # @onready var armour_container: FlowContainer = $
 
@@ -36,7 +36,7 @@ func connect_player(player: Player):
 func update_health(current_health: int, max_health: int):
 	# Reset heart_container before re-rendering hearts
 	for child in hearts_container.get_children():
-		if child != heart_template && child != empty_heart_template:
+		if child != heart_template and child != empty_heart_template:
 			child.queue_free()
 
 	for i in max_health:
@@ -49,10 +49,11 @@ func update_health(current_health: int, max_health: int):
 			empty_heart.show()
 			hearts_container.add_child(empty_heart)
 
+
 func update_armour(current_armour: int, max_armour: int):
 	# Reset armour_container before re-rendering armour
 	for child in armour_container.get_children():
-		if child != armour_template || child != empty_armour_template:
+		if child != armour_template and child != empty_armour_template:
 			child.queue_free()
 
 	for i in max_armour:
@@ -64,6 +65,7 @@ func update_armour(current_armour: int, max_armour: int):
 			var empty_armour:= empty_armour_template.duplicate()
 			empty_armour.show()
 			armour_container.add_child(empty_armour)
+
 
 func update_score(new_score: int):
 	score_label.text = label_text % new_score

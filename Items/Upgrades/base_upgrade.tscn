@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://coe1v5b2081j2"]
+
+[ext_resource type="PackedScene" uid="uid://bgh0bp3afqubd" path="res://Items/base_pickup.tscn" id="1_k7lyb"]
+[ext_resource type="Script" uid="uid://b5b2nvachdyj0" path="res://Items/Upgrades/base_upgrade.gd" id="2_ayxsm"]
+
+[node name="BaseUpgrade" unique_id=830627371 instance=ExtResource("1_k7lyb")]
+script = ExtResource("2_ayxsm")
+upgrade_effect = 0
+effect_value = 0.0

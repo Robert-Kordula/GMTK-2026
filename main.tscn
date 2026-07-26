@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://pr64gkn6fsat" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cov30pnxt7272" path="res://main.gd" id="1_kek77"]
+[ext_resource type="PackedScene" uid="uid://dd20maymsdois" path="res://UI/GameOver/game_over.tscn" id="2_kek77"]
 [ext_resource type="PackedScene" uid="uid://dstxm5vgd8nhb" path="res://UI/HUD/hud.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://btwopkvvvy8jo" path="res://NPCs/Enemies/wolf/WolfSpawner.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bre7h1x4lx4vd" path="res://Zones/Farm/farm_zone.tscn" id="7_5vw27"]
@@ -11,6 +12,8 @@
 
 [node name="Main" type="Node2D" unique_id=53911613]
 script = ExtResource("1_kek77")
+
+[node name="GameOver" parent="." unique_id=1956195717 instance=ExtResource("2_kek77")]
 
 [node name="Player" parent="." unique_id=1427230220 instance=ExtResource("1_ig7tw")]
 z_index = 1000
@@ -141,3 +144,5 @@ position = Vector2(80, -696)
 
 [node name="Farmer" parent="." unique_id=633695722 instance=ExtResource("8_5vw27")]
 position = Vector2(0, -288)
+
+[connection signal="game_ended" from="Player" to="GameOver" method="_on_player_game_ended"]
