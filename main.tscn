@@ -146,11 +146,6 @@ position = Vector2(776, 184)
 [node name="FarmerSpawner6" parent="." unique_id=1414328883 instance=ExtResource("7_kek77")]
 position = Vector2(80, -696)
 
-[node name="Farmer" parent="." unique_id=633695722 instance=ExtResource("8_5vw27")]
-position = Vector2(0, -288)
-collision_layer = 9
-platform_floor_layers = 4294967295
-
 [node name="Invincibility" parent="." unique_id=830627371 instance=ExtResource("9_kek77")]
 position = Vector2(-96, -224)
 
@@ -213,5 +208,8 @@ position = Vector2(-952, 1064)
 
 [node name="MaxHealth9" parent="." unique_id=1344661242 instance=ExtResource("11_efxa6")]
 position = Vector2(-944, 400)
+
+[node name="Farmer" parent="." unique_id=633695722 instance=ExtResource("8_5vw27")]
+position = Vector2(8, -280)
 
 [connection signal="game_ended" from="Player" to="GameOver" method="_on_player_game_ended"]
