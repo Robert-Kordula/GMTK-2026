@@ -12,3 +12,4 @@ max_entities = 20
 
 [node name="SpawnRange" parent="." index="0" unique_id=520577447]
 shape = SubResource("CircleShape2D_1lfbg")
+debug_color = Color(0, 0.8509804, 0.25882354, 0.49411765)

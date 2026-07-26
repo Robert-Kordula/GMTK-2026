@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://pr64gkn6fsat" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cov30pnxt7272" path="res://main.gd" id="1_kek77"]
 [ext_resource type="PackedScene" uid="uid://dstxm5vgd8nhb" path="res://UI/HUD/hud.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://btwopkvvvy8jo" path="res://NPCs/Enemies/wolf/WolfSpawner.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bre7h1x4lx4vd" path="res://Zones/Farm/farm_zone.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://biqvw7lk27453" path="res://NPCs/Fodder/SheepSpawner.tscn" id="7_272bh"]
 
@@ -89,5 +90,33 @@ position = Vector2(176, 536)
 
 [node name="SheepSpawner24" parent="." unique_id=493907797 instance=ExtResource("7_272bh")]
 position = Vector2(976, 272)
+
+[node name="WolfSpawner" parent="." unique_id=1379115689 instance=ExtResource("6_7mycd")]
+position = Vector2(16, 1104)
+max_entities = 1
+
+[node name="WolfSpawner2" parent="." unique_id=1780102124 instance=ExtResource("6_7mycd")]
+position = Vector2(-864, 776)
+
+[node name="WolfSpawner3" parent="." unique_id=59625865 instance=ExtResource("6_7mycd")]
+position = Vector2(784, 880)
+
+[node name="WolfSpawner4" parent="." unique_id=1710308325 instance=ExtResource("6_7mycd")]
+position = Vector2(-688, -1144)
+
+[node name="WolfSpawner5" parent="." unique_id=682678261 instance=ExtResource("6_7mycd")]
+position = Vector2(-1152, -1088)
+
+[node name="WolfSpawner6" parent="." unique_id=793261705 instance=ExtResource("6_7mycd")]
+position = Vector2(512, -1080)
+
+[node name="WolfSpawner7" parent="." unique_id=2069004625 instance=ExtResource("6_7mycd")]
+position = Vector2(1056, -920)
+
+[node name="WolfSpawner8" parent="." unique_id=1653530840 instance=ExtResource("6_7mycd")]
+position = Vector2(1216, 32)
+
+[node name="WolfSpawner9" parent="." unique_id=997721635 instance=ExtResource("6_7mycd")]
+position = Vector2(-1208, 40)
 
 [connection signal="kill_sheep" from="Player" to="." method="_on_player_kill_sheep"]

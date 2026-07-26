@@ -13,7 +13,7 @@ func _physics_process(delta):
 	# Stop BaseEnemy's normal walk while telegraphing, leaping, or recovering
 	if is_pouncing:
 		return
-		
+	
 	super._physics_process(delta)
 
 func attack(direction: Vector2):
