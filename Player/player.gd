@@ -29,6 +29,10 @@ var invincibility_timer: float = 0.0
 var player_speed_boost: float = 1.0
 var player_speed_boost_timer: float = 0.0
 
+var damage_tween: Tween
+var invincibility_tween: Tween
+
+
 @onready var animated_sprite:AnimatedSprite2D = $SeanSprite
 @onready var bite_hitbox:Area2D = $BiteHitbox
 
@@ -44,7 +48,8 @@ func _physics_process(delta):
 
 		handle_input_keys()
 
-	handle_power_up_effects(delta)
+	if invincibility_timer > 0 or player_speed_boost_timer > 0:
+		handle_power_up_effects(delta)
 	move_and_slide()
 
 
@@ -81,7 +86,7 @@ func handle_movement_keys():
 func handle_input_keys():
 	if Input.is_action_just_pressed('melee_attack'):
 		bite_hitbox.attack()
-	
+
 
 func health_change(change_amount: int, new_max_health:= max_health):
 	max_health = new_max_health
@@ -96,14 +101,16 @@ func armour_change(change_amount: int, new_max_armour:= max_armour) -> int:
 
 	if new_armour < 0:
 		return new_armour
-	
+
 	return 0
 
 
 func take_damage(damage: int, direction: Vector2):
 	if triggering_game_over or invincibility_timer > 0:
 		return
-	
+
+	flash_damage()
+
 	var armour_overflow: int = armour_change(-damage)
 
 	health_change(armour_overflow)
@@ -125,20 +132,26 @@ func process_damage_knockback(delta: float):
 		velocity = Vector2(0,0)
 
 
-func handle_power_up_effects(delta):
-	if invincibility_timer > 0:
-		invincibility_timer -= delta
+func handle_power_up_effects(delta: float) -> void:
+	if invincibility_timer > 0.0:
+		invincibility_timer = maxf(invincibility_timer - delta, 0.0)
 
-	if player_speed_boost_timer > 0:
-		player_speed_boost_timer -= delta
+		if invincibility_timer == 0.0:
+			kill_invincibility_tween()
 
-	if player_speed_boost_timer <= 0:
-		player_speed_boost = 1.0
+	if player_speed_boost_timer > 0.0:
+		player_speed_boost_timer = maxf(
+			player_speed_boost_timer - delta,
+			0.0
+		)
+
+		if player_speed_boost_timer == 0.0:
+			player_speed_boost = 1.0
 
 
 func invincibility_pick_up(time_to_apply: float) -> void:
 	invincibility_timer = time_to_apply
-	print(invincibility_timer)
+	rainbow_flash()
 
 
 func game_over():
@@ -156,3 +169,59 @@ func _on_bite_hitbox_area_entered(area: Area2D):
 			sheep_killed += 1
 
 		parent.kill_npc()
+
+func clear_tweens():
+	kill_damage_tween()
+	kill_invincibility_tween()
+
+
+
+func kill_damage_tween() -> void:
+	if damage_tween and damage_tween.is_valid():
+		damage_tween.kill()
+
+	damage_tween = null
+	animated_sprite.modulate = Color.WHITE
+
+
+func kill_invincibility_tween() -> void:
+	if invincibility_tween and invincibility_tween.is_valid():
+		invincibility_tween.kill()
+
+	invincibility_tween = null
+	animated_sprite.modulate = Color.WHITE
+
+
+func flash_damage():
+	clear_tweens()
+
+	damage_tween = create_tween()
+	var animation_time = max_invulnerability_time / 6
+
+	damage_tween.tween_property(animated_sprite, "modulate", Color(1.0, 0.4, 0.4), animation_time)
+	damage_tween.tween_property(animated_sprite, "modulate", Color.WHITE, animation_time)
+
+	damage_tween.tween_property(animated_sprite, "modulate", Color(1.0, 0.4, 0.4), animation_time)
+	damage_tween.tween_property(animated_sprite, "modulate", Color.WHITE,animation_time)
+
+	damage_tween.tween_property(animated_sprite, "modulate", Color(1.0, 0.4, 0.4), animation_time)
+	damage_tween.tween_property(animated_sprite, "modulate", Color.WHITE, animation_time)
+
+func rainbow_flash(duration := 1.0):
+	clear_tweens()
+
+	invincibility_tween = create_tween()
+	invincibility_tween.set_loops()
+
+	const STEPS := 12
+
+	for i in STEPS:
+		var hue := float(i) / STEPS
+		var colour := Color.from_hsv(hue, 1.0, 1.0)
+
+		invincibility_tween.tween_property(
+			animated_sprite,
+			"modulate",
+			colour,
+			duration / STEPS
+		)
