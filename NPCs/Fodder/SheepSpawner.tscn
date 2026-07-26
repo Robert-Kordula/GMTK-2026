@@ -8,6 +8,7 @@ radius = 80.0
 
 [node name="SheepSpawner" unique_id=1566870969 instance=ExtResource("1_3xq2i")]
 script = ExtResource("2_1lfbg")
+respawn_delay_in_seconds = 120.0
 max_entities = 20
 
 [node name="SpawnRange" parent="." index="0" unique_id=520577447]

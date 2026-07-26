@@ -12,6 +12,7 @@ var is_pouncing: bool = false
 func _physics_process(delta):
 	# Stop BaseEnemy's normal walk while telegraphing, leaping, or recovering
 	if is_pouncing:
+		velocity = Vector2.ZERO
 		return
 	
 	super._physics_process(delta)

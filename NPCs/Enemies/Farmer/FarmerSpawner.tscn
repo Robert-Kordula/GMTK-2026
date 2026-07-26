@@ -9,7 +9,7 @@ radius = 112.0
 [node name="FarmerSpawner" unique_id=1566870969 instance=ExtResource("1_2tk7u")]
 script = ExtResource("2_d6p2q")
 respawn_delay_in_seconds = 30.0
-max_entities = 10
+max_entities = 5
 
 [node name="SpawnRange" parent="." index="0" unique_id=520577447]
 shape = SubResource("CircleShape2D_2tk7u")

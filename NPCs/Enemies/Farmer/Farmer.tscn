@@ -14,8 +14,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4echc"]
+size = Vector2(13.865209, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpqhj"]
+size = Vector2(16, 16)
+
 [node name="Farmer" unique_id=633695722 instance=ExtResource("1_3kt38")]
+move_speed = 85
 points_for_killing = 50
 
 [node name="NPCSprite" parent="." index="0" unique_id=108169069]
 sprite_frames = SubResource("SpriteFrames_xru6b")
+
+[node name="BodyCollision" parent="." index="1" unique_id=1910439431]
+position = Vector2(-2.3841858e-07, 0.5)
+shape = SubResource("RectangleShape2D_4echc")
+
+[node name="CollisionShape2D" parent="HitBox" parent_id_path=PackedInt32Array(1727999274) index="0" unique_id=2112060141]
+shape = SubResource("RectangleShape2D_wpqhj")
