@@ -25,6 +25,10 @@ var damage_direction := Vector2(0, 0)
 
 var triggering_game_over: bool = false
 
+var invincibility_timer: float = 0.0
+var player_speed_boost: float = 1.0
+var player_speed_boost_timer: float = 0.0
+
 @onready var animated_sprite:AnimatedSprite2D = $SeanSprite
 @onready var bite_hitbox:Area2D = $BiteHitbox
 
@@ -40,7 +44,9 @@ func _physics_process(delta):
 
 		handle_input_keys()
 
+	handle_power_up_effects(delta)
 	move_and_slide()
+
 
 # Get the input direction and handle the movement.
 func handle_movement_keys():
@@ -75,21 +81,32 @@ func handle_movement_keys():
 func handle_input_keys():
 	if Input.is_action_just_pressed('melee_attack'):
 		bite_hitbox.attack()
+	
 
 func health_change(change_amount: int, new_max_health:= max_health):
 	max_health = new_max_health
 	health = clamp(health + change_amount, 0, max_health)
 	change_to_health.emit(health, new_max_health)
 
-func amour_change(armourChange: int, new_max_armour:= max_armour):
+func armour_change(change_amount: int, new_max_armour:= max_armour) -> int:
 	max_armour = new_max_armour
-	armour = clamp(armour - armourChange, 0, max_armour)
+	var new_armour = armour + change_amount
+	armour = clamp(armour + change_amount, 0, max_armour)
 	change_to_armour.emit(armour, new_max_armour)
 
+	if new_armour < 0:
+		return new_armour
+	
+	return 0
+
+
 func take_damage(damage: int, direction: Vector2):
-	if triggering_game_over:
+	if triggering_game_over or invincibility_timer > 0:
 		return
-	health_change(-damage)
+	
+	var armour_overflow: int = armour_change(-damage)
+
+	health_change(armour_overflow)
 	if health <= 0:
 		triggering_game_over = true
 		call_deferred("game_over")
@@ -107,8 +124,26 @@ func process_damage_knockback(delta: float):
 		invulnerability_time = 0
 		velocity = Vector2(0,0)
 
+
+func handle_power_up_effects(delta):
+	if invincibility_timer > 0:
+		invincibility_timer -= delta
+
+	if player_speed_boost_timer > 0:
+		player_speed_boost_timer -= delta
+
+	if player_speed_boost_timer <= 0:
+		player_speed_boost = 1.0
+
+
+func invincibility_pick_up(time_to_apply: float) -> void:
+	invincibility_timer = time_to_apply
+	print(invincibility_timer)
+
+
 func game_over():
 	get_tree().change_scene_to_file("res://main.tscn")
+
 
 func _on_bite_hitbox_area_entered(area: Area2D):
 	var parent = area.get_parent()
