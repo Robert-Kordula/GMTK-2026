@@ -141,5 +141,3 @@ position = Vector2(80, -696)
 
 [node name="Farmer" parent="." unique_id=633695722 instance=ExtResource("8_5vw27")]
 position = Vector2(0, -288)
-
-[connection signal="kill_sheep" from="Player" to="." method="_on_player_kill_sheep"]

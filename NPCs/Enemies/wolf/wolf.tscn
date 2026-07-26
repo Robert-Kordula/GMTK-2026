@@ -29,6 +29,7 @@ pounce_distance = 120.0
 warning_time = 0.4
 leap_time = 0.25
 recovery_time = 0.2
+points_for_killing = 100
 
 [node name="NPCSprite" parent="." index="0" unique_id=108169069]
 sprite_frames = SubResource("SpriteFrames_fjf03")

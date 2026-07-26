@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 signal change_to_health(new_health: int, new_max_health: int)
 signal change_to_armour(new_armour: int, new_max_armour: int)
-signal kill_sheep(points: int)
+signal killed_npc(points: int)
 
 @export var speed:float = 150.0
 
@@ -17,6 +17,7 @@ signal kill_sheep(points: int)
 @export var max_invulnerability_time: float = 0.3
 
 var score: int = 0
+var sheep_killed: int = 0
 
 var has_player_taken_damage := false
 var invulnerability_time := 0.0
@@ -111,7 +112,12 @@ func game_over():
 
 func _on_bite_hitbox_area_entered(area: Area2D):
 	var parent = area.get_parent()
-	if parent is SheepFodder:
+	print(parent)
+	if parent is BaseNPC:
 		score += parent.points_for_killing
-		kill_sheep.emit(score)
+		killed_npc.emit(score)
+
+		if parent is SheepFodder:
+			sheep_killed += 1
+
 		parent.kill_npc()
