@@ -71,8 +71,8 @@ func _on_follow_range_area_exited(area):
 		player_target = null
 
 func get_attack_direction() -> Vector2:
-	if player_target.position.is_finite():
-		var direction = position - player_target.global_position
+	if player_target.global_position.is_finite():
+		var direction = global_position - player_target.global_position
 
 		return direction.normalized()
 

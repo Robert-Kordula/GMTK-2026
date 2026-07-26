@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal change_to_health(new_health: int, new_max_health: int)
+signal changed_max_health(new_max_health: int)
 signal change_to_armour(new_armour: int, new_max_armour: int)
 signal killed_npc(points: int)
 signal game_ended(sheep_killed: int, final_score: int)
@@ -93,6 +94,7 @@ func health_change(change_amount: int, new_max_health:= max_health):
 	max_health = new_max_health
 	health = clamp(health + change_amount, 0, max_health)
 	change_to_health.emit(health, new_max_health)
+	changed_max_health.emit(new_max_health)
 
 func armour_change(change_amount: int, new_max_armour:= max_armour) -> int:
 	max_armour = new_max_armour

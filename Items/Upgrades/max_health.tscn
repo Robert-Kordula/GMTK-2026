@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bf6vdt4a3gw8u"]
+
+[ext_resource type="PackedScene" uid="uid://dvjvwusb4oyo" path="res://Items/PowerUps/base_power-up.tscn" id="1_631ua"]
+[ext_resource type="Texture2D" uid="uid://dm7glqxfw8trl" path="res://Items/PowerUps/pick-ups.png" id="2_k25nq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_631ua"]
+radius = 11.313708
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwnis"]
+atlas = ExtResource("2_k25nq")
+region = Rect2(0, 32, 16, 16)
+
+[node name="MaxHealth" unique_id=830627371 instance=ExtResource("1_631ua")]
+pickup_effect = 3
+effect_value = 1.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1149915139]
+shape = SubResource("CircleShape2D_631ua")
+
+[node name="PickupSprite" parent="." index="1" unique_id=446857974]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_gwnis")

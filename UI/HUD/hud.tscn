@@ -73,9 +73,9 @@ texture = SubResource("AtlasTexture_spxqp")
 
 [node name="Score" type="Label" parent="Control" unique_id=1453963846]
 layout_mode = 0
-offset_left = 238.0
+offset_left = 449.0
 offset_top = 10.0
-offset_right = 407.0
+offset_right = 618.0
 offset_bottom = 46.0
 text = "Score: "
 uppercase = true
