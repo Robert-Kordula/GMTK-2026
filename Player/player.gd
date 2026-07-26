@@ -22,6 +22,8 @@ var has_player_taken_damage := false
 var invulnerability_time := 0.0
 var damage_direction := Vector2(0, 0)
 
+var triggering_game_over: bool = false
+
 @onready var animated_sprite:AnimatedSprite2D = $SeanSprite
 @onready var bite_hitbox:Area2D = $BiteHitbox
 
@@ -84,8 +86,11 @@ func amour_change(armourChange: int, new_max_armour:= max_armour):
 	change_to_armour.emit(armour, new_max_armour)
 
 func take_damage(damage: int, direction: Vector2):
+	if triggering_game_over:
+		return
 	health_change(-damage)
 	if health <= 0:
+		triggering_game_over = true
 		call_deferred("game_over")
 	else:
 		damage_direction = direction

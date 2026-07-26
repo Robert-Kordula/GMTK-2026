@@ -31,8 +31,7 @@ func process_attack(delta: float):
 			attack(get_attack_direction())
 
 # Temporary implementation intended to be overridden by clases inheriting this class
-func attack(direction: Vector2):
-		print('start attack', direction)
+func attack(_direction: Vector2):
 		time_since_attack = 0
 
 func _on_hit_box_area_entered(area: Area2D):
