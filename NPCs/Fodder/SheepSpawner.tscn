@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://biqvw7lk27453"]
+
+[ext_resource type="PackedScene" uid="uid://dpjmbrjaxs3xm" path="res://NPCs/BaseSpawner.tscn" id="1_3xq2i"]
+[ext_resource type="Script" uid="uid://drj7jmhrkdrik" path="res://NPCs/Fodder/sheep_spawner.gd" id="2_1lfbg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1lfbg"]
+radius = 80.0
+
+[node name="SheepSpawner" unique_id=1566870969 instance=ExtResource("1_3xq2i")]
+script = ExtResource("2_1lfbg")
+max_entities = 20
+
+[node name="SpawnRange" parent="." index="0" unique_id=520577447]
+shape = SubResource("CircleShape2D_1lfbg")
+debug_color = Color(0, 0.8509804, 0.25882354, 0.49411765)

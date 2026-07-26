@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dfaqrc461xt6g"]
+
+[ext_resource type="PackedScene" uid="uid://dpjmbrjaxs3xm" path="res://NPCs/BaseSpawner.tscn" id="1_2tk7u"]
+[ext_resource type="Script" uid="uid://benrrlrrgkejp" path="res://NPCs/Enemies/Farmer/farmer_spawner.gd" id="2_d6p2q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tk7u"]
+radius = 112.0
+
+[node name="FarmerSpawner" unique_id=1566870969 instance=ExtResource("1_2tk7u")]
+script = ExtResource("2_d6p2q")
+respawn_delay_in_seconds = 30.0
+max_entities = 10
+
+[node name="SpawnRange" parent="." index="0" unique_id=520577447]
+shape = SubResource("CircleShape2D_2tk7u")
+debug_color = Color(0.9882353, 0.14509805, 0.09019608, 0.85490197)

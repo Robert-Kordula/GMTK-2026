@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cfsuch5s6nkr6"]
+
+[ext_resource type="PackedScene" uid="uid://okougvrrhrqn" path="res://NPCs/Enemies/BaseEnemy.tscn" id="1_x8ol8"]
+[ext_resource type="Script" uid="uid://bqvpe1nsvk87u" path="res://NPCs/Enemies/wolf/wolf.gd" id="2_ggoh0"]
+[ext_resource type="Texture2D" uid="uid://b7llk64cb65x1" path="res://NPCs/Enemies/wolf/tile_0000.png" id="3_ipyo1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fjf03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ipyo1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggoh0"]
+radius = 50.02
+
+[node name="Wolf" unique_id=633695722 instance=ExtResource("1_x8ol8")]
+script = ExtResource("2_ggoh0")
+pounce_distance = 120.0
+warning_time = 0.4
+leap_time = 0.25
+recovery_time = 0.2
+points_for_killing = 100
+
+[node name="NPCSprite" parent="." index="0" unique_id=108169069]
+sprite_frames = SubResource("SpriteFrames_fjf03")
+
+[node name="CollisionShape2D" parent="AttackRange" parent_id_path=PackedInt32Array(79246605) index="0" unique_id=132471590]
+shape = SubResource("CircleShape2D_ggoh0")
+
+[node name="CollisionShape2D" parent="FollowRange" parent_id_path=PackedInt32Array(2110883168) index="0" unique_id=1282979682]
+position = Vector2(0, 2)

@@ -1,7 +1,7 @@
 class_name BaseEnemy
 extends BaseNPC
 
-@export var move_speed: int = 50
+@export var move_speed: int = 100
 
 @export var hitbox_damage: int = 1
 @export var attack_speed: float = 2
@@ -19,7 +19,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if player_target:
-		position = position.move_toward(player_target.position, move_speed * delta)
+		global_position = global_position.move_toward(player_target.global_position, move_speed * delta)
 
 		process_attack(delta)
 
@@ -31,8 +31,7 @@ func process_attack(delta: float):
 			attack(get_attack_direction())
 
 # Temporary implementation intended to be overridden by clases inheriting this class
-func attack(direction: Vector2):
-		print('start attack', direction)
+func attack(_direction: Vector2):
 		time_since_attack = 0
 
 func _on_hit_box_area_entered(area: Area2D):
@@ -52,7 +51,7 @@ func _on_attack_range_area_exited(area: Area2D):
 		can_attack_player = false
 
 
-func _on_follow_range_area_entered(area):
+func _on_follow_range_area_entered(area: Area2D):
 	var parent = area.get_parent()
 	if parent is Player:
 		player_target = parent
@@ -65,7 +64,7 @@ func _on_follow_range_area_exited(area):
 
 func get_attack_direction() -> Vector2:
 	if player_target.position.is_finite():
-		var direction = position - player_target.position
+		var direction = position - player_target.global_position
 
 		return direction.normalized()
 
