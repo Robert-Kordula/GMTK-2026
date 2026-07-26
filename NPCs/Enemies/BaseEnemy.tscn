@@ -2,18 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://b5ti53mxd1w51" path="res://NPCs/BaseNPC.tscn" id="1_61kt4"]
 [ext_resource type="Script" uid="uid://ds8fddk5wq0db" path="res://NPCs/Enemies/base_enemy.gd" id="2_xru6b"]
-[ext_resource type="Texture2D" uid="uid://bdinw20uuut5g" path="res://NPCs/Enemies/tile_0109.png" id="3_6kmfu"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fj322"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_6kmfu")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3gep"]
 radius = 30.016663
@@ -29,7 +17,7 @@ hitbox_damage = 1
 attack_speed = 2.0
 
 [node name="NPCSprite" parent="." index="0" unique_id=108169069]
-sprite_frames = SubResource("SpriteFrames_fj322")
+sprite_frames = null
 
 [node name="HurtBox" parent="." index="2" unique_id=745515424]
 visible = true

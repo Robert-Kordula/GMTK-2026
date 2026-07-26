@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://2hr56thej4q5"]
+
+[ext_resource type="PackedScene" uid="uid://okougvrrhrqn" path="res://NPCs/Enemies/BaseEnemy.tscn" id="1_3kt38"]
+[ext_resource type="Texture2D" uid="uid://bdinw20uuut5g" path="res://NPCs/Enemies/Farmer/tile_0109.png" id="2_wpqhj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xru6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wpqhj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Farmer" unique_id=633695722 instance=ExtResource("1_3kt38")]
+
+[node name="NPCSprite" parent="." index="0" unique_id=108169069]
+sprite_frames = SubResource("SpriteFrames_xru6b")
